@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Registro de Usuario</h1>
+        <p>Completa todos los campos para crear tu cuenta</p>
+    </header>
+
+    <main class="container">
+
+        <form id="form-registro" action="#" method="post">
+
+            <!-- ══════════════════════════════════
+                 SECCIÓN 1: CUENTA
+            ══════════════════════════════════ -->
+            <div class="seccion">
+                <h2 class="seccion-titulo">
+                    <span class="num">1</span> Datos de la Cuenta
+                </h2>
+
+                <div class="row">
+                    <!-- Nombre de usuario -->
+                    <div class="col-md-4 mb-3">
+                        <label for="username" class="form-label">
+                            Nombre de usuario <span class="req">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="username" autocomplete="off"
+                               placeholder="Ej: juan12">
+                        <div id="username-msg" class="msg-error"></div>
+                        <div class="form-text">
+                            5–10 caracteres, solo letras y dígitos al final.
+                        </div>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="col-md-4 mb-3">
+                        <label for="password" class="form-label">
+                            Contraseña <span class="req">*</span>
+                        </label>
+                        <input type="password" class="form-control" id="password"
+                               placeholder="3–6 caracteres">
+                        <div id="password-msg" class="msg-error"></div>
+                        <div class="form-text">
+                            3–6 caracteres, al menos una letra y un dígito.
+                        </div>
+                    </div>
+
+                    <!-- Confirmación contraseña -->
+                    <div class="col-md-4 mb-3">
+                        <label for="re-password" class="form-label">
+                            Confirmar contraseña <span class="req">*</span>
+                        </label>
+                        <input type="password" class="form-control" id="re-password"
+                               placeholder="Repite la contraseña">
+                        <div id="re-password-msg" class="msg-error"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════
+                 SECCIÓN 2: DATOS PERSONALES
+            ══════════════════════════════════ -->
+            <div class="seccion">
+                <h2 class="seccion-titulo">
+                    <span class="num">2</span> Datos Personales
+                </h2>
+
+                <div class="row">
+                    <!-- Dirección -->
+                    <div class="col-md-6 mb-3">
+                        <label for="direccion" class="form-label">
+                            Dirección postal <span class="req">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="direccion"
+                               placeholder="Ej: Av. Independencia 123">
+                        <div id="direccion-msg" class="msg-error"></div>
+                    </div>
+
+                    <!-- Comuna -->
+                    <div class="col-md-6 mb-3">
+                        <label for="comuna" class="form-label">
+                            Comuna <span class="req">*</span>
+                        </label>
+                        <select class="form-select" id="comuna">
+                            <option value="">— Selecciona una región y comuna —</option>
+
+                            <optgroup label="Región de Arica y Parinacota">
+                                <option value="Arica">Arica</option>
+                                <option value="Camarones">Camarones</option>
+                                <option value="Putre">Putre</option>
+                                <option value="General Lagos">General Lagos</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Tarapacá">
+                                <option value="Iquique">Iquique</option>
+                                <option value="Alto Hospicio">Alto Hospicio</option>
+                                <option value="Pozo Almonte">Pozo Almonte</option>
+                                <option value="Camiña">Camiña</option>
+                                <option value="Colchane">Colchane</option>
+                                <option value="Huara">Huara</option>
+                                <option value="Pica">Pica</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Antofagasta">
+                                <option value="Antofagasta">Antofagasta</option>
+                                <option value="Mejillones">Mejillones</option>
+                                <option value="Sierra Gorda">Sierra Gorda</option>
+                                <option value="Taltal">Taltal</option>
+                                <option value="Calama">Calama</option>
+                                <option value="Ollagüe">Ollagüe</option>
+                                <option value="San Pedro de Atacama">San Pedro de Atacama</option>
+                                <option value="Tocopilla">Tocopilla</option>
+                                <option value="María Elena">María Elena</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Atacama">
+                                <option value="Copiapó">Copiapó</option>
+                                <option value="Caldera">Caldera</option>
+                                <option value="Tierra Amarilla">Tierra Amarilla</option>
+                                <option value="Chañaral">Chañaral</option>
+                                <option value="Diego de Almagro">Diego de Almagro</option>
+                                <option value="Vallenar">Vallenar</option>
+                                <option value="Alto del Carmen">Alto del Carmen</option>
+                                <option value="Freirina">Freirina</option>
+                                <option value="Huasco">Huasco</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Coquimbo">
+                                <option value="La Serena">La Serena</option>
+                                <option value="Coquimbo">Coquimbo</option>
+                                <option value="Andacollo">Andacollo</option>
+                                <option value="La Higuera">La Higuera</option>
+                                <option value="Paihuano">Paihuano</option>
+                                <option value="Vicuña">Vicuña</option>
+                                <option value="Illapel">Illapel</option>
+                                <option value="Canela">Canela</option>
+                                <option value="Los Vilos">Los Vilos</option>
+                                <option value="Salamanca">Salamanca</option>
+                                <option value="Ovalle">Ovalle</option>
+                                <option value="Combarbalá">Combarbalá</option>
+                                <option value="Monte Patria">Monte Patria</option>
+                                <option value="Punitaqui">Punitaqui</option>
+                                <option value="Río Hurtado">Río Hurtado</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Valparaíso">
+                                <option value="Valparaíso">Valparaíso</option>
+                                <option value="Viña del Mar">Viña del Mar</option>
+                                <option value="Casablanca">Casablanca</option>
+                                <option value="Concón">Concón</option>
+                                <option value="Juan Fernández">Juan Fernández</option>
+                                <option value="Puchuncaví">Puchuncaví</option>
+                                <option value="Quintero">Quintero</option>
+                                <option value="San Antonio">San Antonio</option>
+                                <option value="Quillota">Quillota</option>
+                                <option value="Los Andes">Los Andes</option>
+                                <option value="San Felipe">San Felipe</option>
+                            </optgroup>
+
+                            <optgroup label="Región Metropolitana">
+                                <option value="Santiago">Santiago</option>
+                                <option value="Providencia">Providencia</option>
+                                <option value="Las Condes">Las Condes</option>
+                                <option value="Ñuñoa">Ñuñoa</option>
+                                <option value="Maipú">Maipú</option>
+                                <option value="Puente Alto">Puente Alto</option>
+                                <option value="La Florida">La Florida</option>
+                                <option value="San Bernardo">San Bernardo</option>
+                                <option value="Peñalolén">Peñalolén</option>
+                                <option value="Lo Barnechea">Lo Barnechea</option>
+                            </optgroup>
+
+                            <optgroup label="Región del Libertador B. O'Higgins">
+                                <option value="Rancagua">Rancagua</option>
+                                <option value="Machalí">Machalí</option>
+                                <option value="Requínoa">Requínoa</option>
+                                <option value="San Fernando">San Fernando</option>
+                                <option value="Pichilemu">Pichilemu</option>
+                            </optgroup>
+
+                            <optgroup label="Región del Maule">
+                                <option value="Talca">Talca</option>
+                                <option value="Curicó">Curicó</option>
+                                <option value="Linares">Linares</option>
+                                <option value="Cauquenes">Cauquenes</option>
+                                <option value="Constitución">Constitución</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Ñuble">
+                                <option value="Chillán">Chillán</option>
+                                <option value="Chillán Viejo">Chillán Viejo</option>
+                                <option value="San Carlos">San Carlos</option>
+                                <option value="Bulnes">Bulnes</option>
+                                <option value="Yungay">Yungay</option>
+                            </optgroup>
+
+                            <optgroup label="Región del Biobío">
+                                <option value="Concepción">Concepción</option>
+                                <option value="Talcahuano">Talcahuano</option>
+                                <option value="Hualpén">Hualpén</option>
+                                <option value="Los Ángeles">Los Ángeles</option>
+                                <option value="Chiguayante">Chiguayante</option>
+                                <option value="San Pedro de la Paz">San Pedro de la Paz</option>
+                                <option value="Coronel">Coronel</option>
+                                <option value="Lota">Lota</option>
+                            </optgroup>
+
+                            <optgroup label="Región de La Araucanía">
+                                <option value="Temuco">Temuco</option>
+                                <option value="Padre Las Casas">Padre Las Casas</option>
+                                <option value="Angol">Angol</option>
+                                <option value="Villarrica">Villarrica</option>
+                                <option value="Pucón">Pucón</option>
+                                <option value="Victoria">Victoria</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Los Ríos">
+                                <option value="Valdivia">Valdivia</option>
+                                <option value="La Unión">La Unión</option>
+                                <option value="Río Bueno">Río Bueno</option>
+                                <option value="Futrono">Futrono</option>
+                                <option value="Panguipulli">Panguipulli</option>
+                                <option value="Los Lagos">Los Lagos</option>
+                                <option value="Máfil">Máfil</option>
+                                <option value="Mariquina">Mariquina</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Los Lagos">
+                                <option value="Puerto Montt">Puerto Montt</option>
+                                <option value="Puerto Varas">Puerto Varas</option>
+                                <option value="Osorno">Osorno</option>
+                                <option value="Castro">Castro</option>
+                                <option value="Ancud">Ancud</option>
+                                <option value="Calbuco">Calbuco</option>
+                                <option value="Fresia">Fresia</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Aysén">
+                                <option value="Coyhaique">Coyhaique</option>
+                                <option value="Aysén">Aysén</option>
+                                <option value="Chile Chico">Chile Chico</option>
+                                <option value="Cochrane">Cochrane</option>
+                            </optgroup>
+
+                            <optgroup label="Región de Magallanes">
+                                <option value="Punta Arenas">Punta Arenas</option>
+                                <option value="Puerto Natales">Puerto Natales</option>
+                                <option value="Porvenir">Porvenir</option>
+                                <option value="Puerto Williams">Puerto Williams</option>
+                            </optgroup>
+
+                        </select>
+                        <div id="comuna-msg" class="msg-error"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Teléfono -->
+                    <div class="col-md-6 mb-3">
+                        <label for="telefono" class="form-label">
+                            Número de teléfono <span class="req">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="telefono"
+                               placeholder="Ej: +56912345678">
+                        <div id="telefono-msg" class="msg-error"></div>
+                        <div class="form-text">
+                            Formato: +56 seguido de 9 dígitos (Ej: +56912345678).
+                        </div>
+                    </div>
+
+                    <!-- Página web -->
+                    <div class="col-md-6 mb-3">
+                        <label for="web" class="form-label">
+                            Página web personal
+                        </label>
+                        <input type="text" class="form-control" id="web"
+                               placeholder="Ej: https://miportafolio.cl">
+                        <div id="web-msg" class="msg-error"></div>
+                        <div class="form-text">
+                            Debe comenzar con http:// o https://
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════
+                 SECCIÓN 3: AFICIONES
+            ══════════════════════════════════ -->
+            <div class="seccion">
+                <h2 class="seccion-titulo">
+                    <span class="num">3</span> Aficiones o Pasatiempos
+                </h2>
+
+                <div class="row">
+                    <!-- Input de afición -->
+                    <div class="col-md-6 mb-3">
+                        <label for="hobby" class="form-label">
+                            Agregar afición <span class="req">*</span>
+                        </label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="hobby"
+                                   placeholder="Ej: Fotografía">
+                            <button type="button" class="btn btn-agregar" onclick="agregarHobby()">
+                                + Agregar
+                            </button>
+                        </div>
+                        <div id="hobby-msg" class="msg-error"></div>
+                        <div class="form-text">Debes agregar al menos 2 aficiones.</div>
+                    </div>
+
+                    <!-- Lista de aficiones -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Aficiones agregadas</label>
+                        <ul id="hobby-list" class="lista-hobbies">
+                            <li id="hobby-vacio" class="hobby-placeholder">
+                                Aún no has agregado aficiones...
+                            </li>
+                        </ul>
+                        <div id="hobbies-count" class="form-text"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════
+                 BOTONES
+            ══════════════════════════════════ -->
+            <div class="d-flex gap-3 mt-2 mb-5">
+                <button type="button" class="btn btn-enviar" onclick="validar()">
+                    Registrar
+                </button>
+                <button type="reset" class="btn btn-limpiar" onclick="limpiarTodo()">
+                    Limpiar
+                </button>
+            </div>
+
+        </form>
+
+        <!-- Panel de éxito (oculto hasta que el formulario sea válido) -->
+        <div id="panel-exito" class="panel-exito" style="display:none;">
+            <div class="exito-icono">✓</div>
+            <h3>¡Registro exitoso!</h3>
+            <p>Los datos del usuario han sido registrados correctamente.</p>
+            <div id="resumen-datos" class="resumen-datos"></div>
+            <button class="btn btn-enviar mt-3" onclick="nuevoRegistro()">Nuevo registro</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Formulario de Registro &nbsp;·&nbsp; Analista Programador
+           &nbsp;·&nbsp; INACAP Sede Valdivia &nbsp;·&nbsp; 2025</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

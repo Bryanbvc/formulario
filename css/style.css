@@ -1,0 +1,356 @@
+/* ============================================
+   FORMULARIO DE REGISTRO
+   Paleta: Azul profesional + acentos verdes
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --azul-oscuro:   #1E3A5F;
+    --azul-medio:    #2D5F8A;
+    --azul-claro:    #4A90C4;
+    --verde:         #28A745;
+    --rojo:          #DC3545;
+    --gris-bg:       #F4F7FA;
+    --gris-border:   #CED4DA;
+    --texto:         #2C3E50;
+    --texto-muted:   #6C757D;
+    --blanco:        #FFFFFF;
+}
+
+/* ── BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gris-bg);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── HEADER ── */
+header {
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+    color: var(--blanco);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4rem;
+}
+
+header p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* ── MAIN ── */
+main {
+    flex: 1;
+    padding: 2.5rem 1rem 3rem;
+    max-width: 900px;
+}
+
+/* ── SECCIONES ── */
+.seccion {
+    background: var(--blanco);
+    border-radius: 10px;
+    border: 1px solid #DDE3EA;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.06);
+}
+
+.seccion-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid var(--gris-bg);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--azul-medio);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ── LABELS Y CONTROLES ── */
+.form-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--texto);
+    margin-bottom: 0.35rem;
+}
+
+.req {
+    color: var(--rojo);
+    font-weight: 700;
+}
+
+.form-control,
+.form-select {
+    border: 1.5px solid var(--gris-border);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.9rem;
+    color: var(--texto);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: var(--blanco);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 3px rgba(74, 144, 196, 0.18);
+    outline: none;
+}
+
+.form-control.valido {
+    border-color: var(--verde);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%2328A745' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 2.2rem;
+}
+
+.form-control.invalido,
+.form-select.invalido {
+    border-color: var(--rojo);
+}
+
+.form-text {
+    font-size: 0.775rem;
+    color: var(--texto-muted);
+    margin-top: 0.3rem;
+}
+
+/* ── MENSAJES DE ERROR ── */
+.msg-error {
+    font-size: 0.8rem;
+    color: var(--rojo);
+    font-weight: 500;
+    min-height: 1.1rem;
+    margin-top: 0.3rem;
+    transition: opacity 0.2s;
+}
+
+.msg-ok {
+    color: var(--verde) !important;
+}
+
+/* ── INPUT GROUP (hobby) ── */
+.input-group .form-control {
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+}
+
+.input-group .form-control:focus {
+    z-index: 2;
+}
+
+/* ── BOTONES ── */
+.btn-agregar {
+    background: var(--azul-medio);
+    color: white;
+    border: 1.5px solid var(--azul-medio);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.55rem 1.1rem;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn-agregar:hover {
+    background: var(--azul-oscuro);
+    border-color: var(--azul-oscuro);
+    transform: translateY(-1px);
+}
+
+.btn-agregar:active { transform: translateY(0); }
+
+.btn-enviar {
+    background: linear-gradient(135deg, var(--azul-medio), var(--azul-oscuro));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.65rem 2rem;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s, transform 0.15s;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-limpiar {
+    background: transparent;
+    color: var(--texto-muted);
+    border: 1.5px solid var(--gris-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.65rem 1.5rem;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.btn-limpiar:hover {
+    background: var(--gris-bg);
+    color: var(--texto);
+}
+
+/* ── LISTA DE HOBBIES ── */
+.lista-hobbies {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1.5px solid var(--gris-border);
+    border-radius: 6px;
+    background: var(--gris-bg);
+    min-height: 48px;
+}
+
+.hobby-placeholder {
+    padding: 0.75rem 1rem;
+    color: var(--texto-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.lista-hobbies li.hobby-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid #E8EDF2;
+    font-size: 0.875rem;
+    background: white;
+    transition: background 0.15s;
+}
+
+.lista-hobbies li.hobby-item:last-child {
+    border-bottom: none;
+}
+
+.lista-hobbies li.hobby-item:hover {
+    background: #EEF4FA;
+}
+
+.hobby-texto {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hobby-texto::before {
+    content: '♦';
+    color: var(--azul-claro);
+    font-size: 0.6rem;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: var(--texto-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 0.2rem;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.btn-eliminar:hover { color: var(--rojo); }
+
+/* ── PANEL ÉXITO ── */
+.panel-exito {
+    background: white;
+    border: 2px solid var(--verde);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin: 1rem 0 3rem;
+    box-shadow: 0 4px 16px rgba(40, 167, 69, 0.12);
+}
+
+.exito-icono {
+    width: 64px;
+    height: 64px;
+    background: var(--verde);
+    color: white;
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.panel-exito h3 {
+    color: var(--verde);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.panel-exito p {
+    color: var(--texto-muted);
+    margin-bottom: 1rem;
+}
+
+.resumen-datos {
+    background: var(--gris-bg);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--texto);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.resumen-datos strong {
+    color: var(--azul-oscuro);
+}
+
+/* ── FOOTER ── */
+footer {
+    background: var(--azul-oscuro);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .seccion { padding: 1.2rem; }
+    main { padding: 1.2rem 0.5rem 2rem; }
+}

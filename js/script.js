@@ -1,6 +1,3 @@
-=========================
-
-// ── ARREGLO GLOBAL DE AFICIONES ──────────────────────────────
 const arrayHobbies = [];
 
 // ── OBJETO QUE ALMACENA LOS DATOS DEL USUARIO ───────────────

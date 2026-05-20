@@ -1,8 +1,4 @@
-// ============================================================
-//  FORMULARIO DE REGISTRO — script.js
-//  Tecnologías: JavaScript puro (sin REGEX, sin validación HTML)
-//  Estructura: funciones modulares + objeto de datos de usuario
-// ============================================================
+=========================
 
 // ── ARREGLO GLOBAL DE AFICIONES ──────────────────────────────
 const arrayHobbies = [];
@@ -19,15 +15,6 @@ let datosUsuario = {
     hobbies:   []
 };
 
-
-// ════════════════════════════════════════════════════════════
-//  SECCIÓN 1 — AFICIONES (DOM / Arreglo)
-// ════════════════════════════════════════════════════════════
-
-/**
- * Agrega una afición al arreglo y actualiza la lista en pantalla.
- * Se llama desde el botón "+ Agregar" en el HTML.
- */
 function agregarHobby() {
     const input   = document.getElementById("hobby");
     const msgDiv  = document.getElementById("hobby-msg");
@@ -126,21 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// ════════════════════════════════════════════════════════════
-//  SECCIÓN 2 — VALIDACIONES INDIVIDUALES
-//  Cada función retorna true (válido) o false (inválido)
-//  y muestra/limpia el mensaje correspondiente en el DOM.
-// ════════════════════════════════════════════════════════════
-
-/**
- * Valida el nombre de usuario:
- * - Obligatorio
- * - 5 a 10 caracteres
- * - Solo letras y dígitos (sin acentos, sin símbolos)
- * - Debe comenzar con letra
- * - Los dígitos solo pueden estar al final
- * SIN REGEX: se recorre carácter por carácter.
- */
 function validarUsername() {
     const valor = document.getElementById("username").value.trim();
     const letras  = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -165,9 +137,6 @@ function validarUsername() {
         }
     }
 
-    // Los dígitos solo pueden aparecer al final:
-    // Encontrar el índice donde empieza la "zona de dígitos del final"
-    // y verificar que a partir de ahí todo sean dígitos.
     let empezaronDigitos = false;
     for (let i = 0; i < valor.length; i++) {
         const esDigito = digitos.indexOf(valor[i]) !== -1;
@@ -184,14 +153,6 @@ function validarUsername() {
     return marcarValido("username", "username-msg", "✓ Usuario válido");
 }
 
-/**
- * Valida la contraseña:
- * - Obligatoria
- * - 3 a 6 caracteres
- * - Al menos una letra y al menos un dígito
- * - No puede contener el nombre de usuario
- * SIN REGEX.
- */
 function validarPassword() {
     const password = document.getElementById("password").value;
     const username = document.getElementById("username").value.trim().toLowerCase();
@@ -275,12 +236,7 @@ function validarComuna() {
     return true;
 }
 
-/**
- * Valida el teléfono:
- * - Obligatorio
- * - Formato: +56 seguido de exactamente 9 dígitos
- * SIN REGEX: se analiza carácter por carácter.
- */
+
 function validarTelefono() {
     const valor   = document.getElementById("telefono").value.trim();
     const digitos = "0123456789";
@@ -308,13 +264,7 @@ function validarTelefono() {
     return marcarValido("telefono", "telefono-msg", "✓ Teléfono válido");
 }
 
-/**
- * Valida la URL de la página web personal (campo opcional):
- * - Si se ingresa algo, debe comenzar con "http://" o "https://"
- * - Debe tener al menos un punto en el dominio
- * - No puede tener espacios
- * SIN REGEX.
- */
+
 function validarWeb() {
     const valor = document.getElementById("web").value.trim();
 
@@ -369,15 +319,7 @@ function validarHobbies() {
 }
 
 
-// ════════════════════════════════════════════════════════════
-//  SECCIÓN 3 — FUNCIÓN PRINCIPAL DE VALIDACIÓN
-// ════════════════════════════════════════════════════════════
 
-/**
- * Ejecuta todas las validaciones en orden.
- * Si todas pasan, construye el objeto datosUsuario y muestra el panel de éxito.
- * Retorna false siempre para no enviar el form a ningún backend.
- */
 function validar() {
     const okUsername     = validarUsername();
     const okPassword     = validarPassword();
@@ -492,14 +434,6 @@ function limpiarTodosLosMensajes() {
 }
 
 
-// ════════════════════════════════════════════════════════════
-//  SECCIÓN 5 — HELPERS DE DOM (mostrar/limpiar mensajes)
-// ════════════════════════════════════════════════════════════
-
-/**
- * Marca un input como inválido: borde rojo + mensaje de error.
- * Retorna false (para que la función validadora retorne false directamente).
- */
 function marcarInvalido(inputId, msgId, mensaje) {
     const input = document.getElementById(inputId);
     const div   = document.getElementById(msgId);
